@@ -7,14 +7,14 @@ import TSPChart from './components/TSPChart';
 function App() {
   const [points, setPoints] = useState([]);
   const [solution, setSolution] = useState([]);
-  const [bestSolutionForVisualizer, setBestSolutionForVisualizer] = useState([]); // <--- nowy stan
+  const [bestSolutionForVisualizer, setBestSolutionForVisualizer] = useState([]); 
   const [history, setHistory] = useState([]);
 
   return (
     <div className="App">
       <TSPVisualizer
         setPoints={setPoints}
-        solution={bestSolutionForVisualizer} // <-- Visualizer zawsze dostaje najlepsze
+        solution={bestSolutionForVisualizer} 
       />
 
       {points.length > 0 && (
@@ -37,7 +37,6 @@ function App() {
                 { iteration: prev.length + 1, length: Number(newLength.toFixed(2)) }
               ]);
 
-              // aktualizuj najlepszą trasę dla Visualizera
               const currentBestLength = bestSolutionForVisualizer.reduce((sum, p, i, arr) => {
                 const next = arr[(i + 1) % arr.length];
                 return sum + Math.hypot(p.x - next.x, p.y - next.y);
