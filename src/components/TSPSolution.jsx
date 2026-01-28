@@ -10,7 +10,6 @@ const calculateDistance = (points) => {
   return total;
 };
 
-// forwardRef, żeby expose'ować hook do Visualizera
 const TSPSolution = forwardRef(({ points, solution }, ref) => {
   const [bestSolution, setBestSolution] = useState([]);
   const [bestDistance, setBestDistance] = useState(0);
@@ -35,7 +34,6 @@ const TSPSolution = forwardRef(({ points, solution }, ref) => {
     }
   }, [solution, bestDistance]);
 
-  // expose hook dla Visualizera
   useImperativeHandle(ref, () => ({
     getBestSolution: () => bestSolution
   }));
@@ -58,3 +56,4 @@ const TSPSolution = forwardRef(({ points, solution }, ref) => {
 });
 
 export default TSPSolution;
+
