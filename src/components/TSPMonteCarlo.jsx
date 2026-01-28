@@ -22,7 +22,7 @@ const TSPMonteCarlo = ({ points, setSolution }) => {
         setIterations(prev => prev + 1);
         const newSolution = shufflePoints(points);
         setSolution(newSolution); 
-      }, 1); // 5 sekund
+      }, 5000); 
     } else {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
